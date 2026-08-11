@@ -1,16 +1,16 @@
-## Hi there 👋
+# Gift Katta
+Web-only selected-brand deals website.
 
-<!--
-**gift-katta/Gift-Katta** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Files:
+- index.html
+- style.css
+- script.js
 
-Here are some ideas to get you started:
+Before publishing:
+1. Open script.js.
+2. Replace WHATSAPP_NUMBER with your real WhatsApp number, including country code.
+3. Replace sample offers/coupons with your real offers.
+4. Replace text logo placeholders with your actual brand/business logo if available.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+GitHub Pages:
+Create a public GitHub repository, upload these files, then Settings -> Pages -> Deploy from branch -> main -> /root.

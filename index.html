@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gift Katta — Handpicked Deals</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="#"><span>G</span> Gift Katta</a>
+    <nav>
+      <a href="#deals">Deals</a>
+      <a href="#brands">Brands</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="wa-top" href="#" onclick="openWhatsApp('Gift Katta')">WhatsApp Us</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">HANDPICKED • SIMPLE • DIRECT</p>
+        <h1>Big brands.<br><em>Better deals.</em></h1>
+        <p class="hero-copy">Discover selected offers from brands you love and get your deal directly on WhatsApp.</p>
+        <a class="primary-btn" href="#deals">Explore Deals ↓</a>
+      </div>
+      <div class="hero-card">
+        <div class="mini-label">TODAY'S HIGHLIGHT</div>
+        <div class="big-discount">UP TO<br><strong>40%</strong> OFF</div>
+        <p>Selected brand offers</p>
+      </div>
+    </section>
+
+    <section class="ads" aria-label="Advertisements">
+      <div class="ad active"><span>Gift Katta Exclusive</span><strong>Special deals. One place.</strong><small>Tap a deal below to explore.</small></div>
+      <div class="ad"><span>THIS WEEK</span><strong>Fresh offers from selected brands</strong><small>Limited offers may change anytime.</small></div>
+      <div class="ad"><span>DEAL ALERT</span><strong>See an offer you like?</strong><small>Connect with us on WhatsApp.</small></div>
+      <div class="dots"><button class="dot active"></button><button class="dot"></button><button class="dot"></button></div>
+    </section>
+
+    <section id="brands" class="section">
+      <div class="section-head"><div><p class="eyebrow">OUR BRANDS</p><h2>Selected for you</h2></div></div>
+      <div class="brand-strip" id="brandStrip"></div>
+    </section>
+
+    <section id="deals" class="section">
+      <div class="section-head">
+        <div><p class="eyebrow">TODAY'S DEALS</p><h2>Grab a deal</h2></div>
+        <span class="muted">8 selected brands</span>
+      </div>
+      <div class="deal-grid" id="dealGrid"></div>
+    </section>
+
+    <section id="about" class="closing">
+      <div>
+        <p class="eyebrow">GIFT KATTA</p>
+        <h2>Stay together to make new deals. ❤️</h2>
+      </div>
+      <p>We keep things simple: discover a selected offer, check the details, and connect with us on WhatsApp.</p>
+    </section>
+  </main>
+
+  <footer>
+    <strong>Gift Katta</strong>
+    <span>Deals you love. Brands you trust.</span>
+    <a href="#" onclick="openWhatsApp('Gift Katta')">WhatsApp</a>
+  </footer>
+
+  <div class="modal" id="dealModal" aria-hidden="true">
+    <div class="modal-backdrop" onclick="closeDeal()"></div>
+    <article class="deal-page">
+      <button class="close" onclick="closeDeal()" aria-label="Close">×</button>
+      <div class="modal-brand">GIFT KATTA</div>
+      <div class="modal-ad" id="modalAd"></div>
+      <div class="offer-status"><span></span> OFFER ACTIVE</div>
+      <h2 id="modalTitle"></h2>
+      <p class="modal-offer" id="modalOffer"></p>
+      <p id="modalDesc"></p>
+
+      <div class="action-row">
+        <a class="whatsapp-btn" id="waButton" href="#" target="_blank">● Get Deal on WhatsApp</a>
+      </div>
+
+      <div class="coupon-box">
+        <div><small>COUPON CODE</small><strong id="modalCoupon"></strong></div>
+        <button onclick="copyCoupon()">Copy</button>
+      </div>
+      <p class="copy-note" id="copyNote"></p>
+
+      <div class="info-grid">
+        <section><h3>How to redeem</h3><ol id="modalRedeem"></ol></section>
+        <section><h3>Terms & Conditions</h3><ul id="modalTerms"></ul></section>
+      </div>
+
+      <div class="recent">
+        <h3>More deals</h3>
+        <div id="recentDeals"></div>
+      </div>
+    </article>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
