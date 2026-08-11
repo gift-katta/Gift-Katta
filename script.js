@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = "919999999999"; // Replace with your WhatsApp number, country code included.
+const WHATSAPP_NUMBER = "917588406001"; // Replace with your WhatsApp number, country code included.
 
 const deals = [
   {brand:"PVR INOX", short:"PVR", offer:"Up to 25% OFF", coupon:"GIFTKATTA25", desc:"Special cinema offer for selected bookings.", color:"Cinema"},
