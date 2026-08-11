@@ -1,14 +1,14 @@
 const WHATSAPP_NUMBER = "917588406001"; // Replace with your WhatsApp number, country code included.
 
 const deals = [
-  {brand:"PVR INOX", short:"PVR", offer:"Up to 25% OFF", coupon:"GIFTKATTA25", desc:"Special cinema offer for selected bookings.", color:"Cinema"},
-  {brand:"Jockey", short:"J", offer:"Up to 30% OFF", coupon:"JOCKEY30", desc:"Selected fashion and innerwear offers.", color:"Fashion"},
-  {brand:"Puma", short:"P", offer:"Up to 40% OFF", coupon:"PUMA40", desc:"Selected sportswear and footwear offer.", color:"Sports"},
-  {brand:"Foxtale", short:"F", offer:"Up to 25% OFF", coupon:"FOXTale25", desc:"Selected skincare products offer.", color:"Beauty"},
-  {brand:"Domino's", short:"D", offer:"Special Offer", coupon:"DOMINOS", desc:"Selected food offers. Check availability on WhatsApp.", color:"Food"},
-  {brand:"EatSure", short:"ES", offer:"Up to 20% OFF", coupon:"EATSURE20", desc:"Selected meals and food offers.", color:"Food"},
-  {brand:"BGMI by Swag", short:"BG", offer:"Exclusive Offer", coupon:"BGMIKATTA", desc:"Selected BGMI by Swag offer.", color:"Gaming"},
-  {brand:"Vijay Sales", short:"VS", offer:"Up to 15% OFF", coupon:"VS15", desc:"Selected electronics offers.", color:"Electronics"}
+  {brand:"PVR INOX", short:"PVR", offer:"Get 10% OFF", coupon:"GIFTKATTA25", desc:"Special cinema offer for selected bookings.", color:"Cinema"},
+  {brand:"Jockey", short:"J", offer:"Get 10% OFF", coupon:"JOCKEY30", desc:"Selected fashion and innerwear offers.", color:"Fashion"},
+  {brand:"Puma", short:"P", offer:"Get 8% OFF", coupon:"PUMA40", desc:"Selected sportswear and footwear offer.", color:"Sports"},
+  {brand:"Foxtale", short:"F", offer:"Get 15% OFF", coupon:"FOXTale25", desc:"Selected skincare products offer.", color:"Beauty"},
+  {brand:"Domino's", short:"D", offer:"Get 10% OFF", coupon:"DOMINOS", desc:"Selected food offers. Check availability on WhatsApp.", color:"Food"},
+  {brand:"EatSure", short:"ES", offer:"Get 8% OFF", coupon:"EATSURE20", desc:"Selected meals and food offers.", color:"Food"},
+  {brand:"BGMI by Swag", short:"BG", offer:"Get 8% OFF", coupon:"BGMIKATTA", desc:"Selected BGMI by Swag offer.", color:"Gaming"},
+  {brand:"Vijay Sales", short:"VS", offer:"Get 2% OFF", coupon:"VS15", desc:"Selected electronics offers.", color:"Electronics"}
 ];
 
 const grid = document.getElementById("dealGrid");
