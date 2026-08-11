@@ -1,7 +1,7 @@
 const WHATSAPP_NUMBER = "917588406001"; // Replace with your WhatsApp number, country code included.
 
 const deals = [
-  {brand:"PVR INOX", short:"PVR", offer:"Get 10% OFF", coupon:"GIFTKATTA25", desc:"Special cinema offer for selected bookings.", color:"Cinema"},
+  {brand:"PVR INOX", short:"pvr-inox", offer:"Get 10% OFF", coupon:"GIFTKATTA25", desc:"Special cinema offer for selected bookings.", color:"Cinema"},
   {brand:"Jockey", short:"J", offer:"Get 10% OFF", coupon:"JOCKEY30", desc:"Selected fashion and innerwear offers.", color:"Fashion"},
   {brand:"Puma", short:"P", offer:"Get 8% OFF", coupon:"PUMA40", desc:"Selected sportswear and footwear offer.", color:"Sports"},
   {brand:"Foxtale", short:"F", offer:"Get 15% OFF", coupon:"FOXTale25", desc:"Selected skincare products offer.", color:"Beauty"},
