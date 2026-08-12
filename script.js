@@ -15,3 +15,9 @@ function openDeal(i){current=i;const d=deals[i];document.getElementById("mTitle"
 function closeDeal(){document.getElementById("modal").classList.remove("open");document.body.style.overflow=""}
 function copyCoupon(){navigator.clipboard.writeText(deals[current].coupon);document.getElementById("copied").textContent="✓ Coupon copied!"}
 let s=0,ads=document.querySelectorAll(".ad");setInterval(()=>{ads[s].classList.remove("active");s=(s+1)%ads.length;ads[s].classList.add("active")},4000);
+let currentAd=0;
+const adSlides=document.querySelectorAll(".ad-slide");
+const adDots=document.querySelectorAll(".ad-dot");
+function showAd(index){if(!adSlides.length)return;adSlides[currentAd].classList.remove("active");adDots[currentAd].classList.remove("active");currentAd=index;adSlides[currentAd].classList.add("active");adDots[currentAd].classList.add("active")}
+function changeAd(direction){let next=currentAd+direction;if(next<0)next=adSlides.length-1;if(next>=adSlides.length)next=0;showAd(next)}
+setInterval(()=>changeAd(1),5000);
