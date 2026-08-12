@@ -81,7 +81,7 @@
 }
 
 .hero-image-box{width:100%;height:310px;border-radius:30px;overflow:hidden;background:#f1f1ed}
-.hero-image-box img{width:100%;height:100%;display:block;object-fit:cover;object-position:center}
+.hero-image-box img{width:100%;height:100%;display:block;object-fit:fill;object-position:center}
 .ads{position:relative}
 .ad-slides{width:100%;overflow:hidden;border-radius:24px}
 .ad-slide{display:none;width:100%;aspect-ratio:3/1;border-radius:24px;overflow:hidden}
