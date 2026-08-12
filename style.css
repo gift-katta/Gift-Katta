@@ -43,3 +43,39 @@
   .brand img{width:48px;height:48px}
   .dealLogo{width:58px;height:58px;flex-basis:58px}
 }
+
+/* Final mobile logo fit */
+.brand img {
+  display:block;
+  width:58px !important;
+  height:58px !important;
+  max-width:58px;
+  max-height:58px;
+  object-fit:contain !important;
+  object-position:center !important;
+  padding:6px !important;
+  background:#fff;
+  border-radius:12px;
+  margin:0 auto 7px !important;
+}
+.dealLogo {
+  display:block;
+  width:66px !important;
+  height:66px !important;
+  max-width:66px;
+  max-height:66px;
+  object-fit:contain !important;
+  object-position:center !important;
+  padding:7px !important;
+  background:#fff;
+  border-radius:14px;
+}
+.modalAd img {
+  width:82px !important;
+  height:82px !important;
+  object-fit:contain !important;
+  object-position:center !important;
+  padding:8px !important;
+  background:#fff;
+  border-radius:15px;
+}
