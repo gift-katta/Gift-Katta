@@ -437,3 +437,115 @@
 #finalPrice span{
   margin-left: 8px;
 }
+/* =========================================================
+   GIFT KATTA — MOBILE IMAGE FIT FIX
+   Paste this at the VERY END of style.css
+   Does not change fonts, text, cards, or deal calculations.
+   ========================================================= */
+
+/* Homepage hero/highlight image */
+.hero-image-box {
+  overflow: hidden;
+}
+
+.hero-image-box img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* Homepage advertisement */
+.ads {
+  width: 100%;
+  overflow: visible;
+}
+
+.ad-slides {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.ad-slide {
+  width: 100%;
+  aspect-ratio: 3 / 1 !important;
+  height: auto !important;
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.ad-slide img {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* Keep arrows outside the actual image crop */
+.ad-arrow {
+  z-index: 10;
+}
+
+/* Android / small screens */
+@media (max-width: 800px) {
+  .hero-image-box {
+    width: 100%;
+    height: auto !important;
+    aspect-ratio: 3 / 1 !important;
+    border-radius: 22px;
+  }
+
+  .hero-image-box img {
+    object-fit: contain !important;
+  }
+
+  .ads {
+    width: 100%;
+    padding: 0 5%;
+    box-sizing: border-box;
+  }
+
+  .ad-slides {
+    width: 100%;
+    border-radius: 18px;
+  }
+
+  .ad-slide {
+    width: 100%;
+    height: auto !important;
+    aspect-ratio: 3 / 1 !important;
+    border-radius: 18px;
+  }
+
+  .ad-slide img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+  }
+}
+
+/* Very small Android screens */
+@media (max-width: 480px) {
+  .hero-image-box {
+    aspect-ratio: 3 / 1 !important;
+    height: auto !important;
+  }
+
+  .ad-slide {
+    aspect-ratio: 3 / 1 !important;
+    height: auto !important;
+  }
+
+  .ad-slide img {
+    object-fit: contain !important;
+  }
+
+  .ad-arrow {
+    width: 34px;
+    height: 34px;
+    font-size: 22px;
+  }
+}
