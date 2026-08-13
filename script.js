@@ -36,7 +36,7 @@ function openDeal(i){
   set("copied","");
   const recent=document.getElementById("recentDeals");
   if(recent){
-    recent.innerHTML=deals.filter((_,x)=>x!==i).slice(0,4).map(x=>`<div class="recent-card" onclick="openDeal(${deals.indexOf(x)})"><strong>${x.brand}</strong><br><small>${x.offer}</small></div>`).join("");
+    recent.innerHTML=deals.filter((_,x)=>x!==i).slice(0,4).map(x=>`<div class="recent-card" onclick="openDeal(${deals.indexOf(x)})"><img src="${x.logo}" alt="${x.brand} logo"><div><strong>${x.brand}</strong><br><small>${x.offer}</small></div></div>`).join("");
   }
   const modal=document.getElementById("modal");
   if(modal)modal.classList.add("open");

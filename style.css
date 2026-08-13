@@ -143,3 +143,29 @@
 .detail-image{height:285px;border-radius:22px}.detail-image img{padding:35px}
 .detail-right h1{font-size:42px}.recent-deals{grid-template-columns:1fr 1fr}
 }
+
+/* Brand logos in More selected deals */
+.recent-deals .recent-card{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  min-height:76px;
+}
+.recent-deals .recent-card img{
+  width:52px;
+  height:52px;
+  flex:0 0 52px;
+  object-fit:contain;
+  object-position:center;
+  background:#fff;
+  border-radius:11px;
+  padding:6px;
+  display:block;
+}
+.recent-deals .recent-card strong{font-size:15px}
+.recent-deals .recent-card small{color:#777;font-size:12px}
+@media(max-width:800px){
+  .recent-deals .recent-card img{
+    width:46px;height:46px;flex-basis:46px;
+  }
+}
