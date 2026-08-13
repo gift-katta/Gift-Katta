@@ -229,3 +229,20 @@
 .detail-ad-slider{height:270px;border-radius:22px}.detail-ad-slide img{object-fit:cover}
 .detail-right h1{font-size:42px}.recent-deals{grid-template-columns:1fr 1fr}
 }
+
+/* Dealzy-style header/search, without Get App */
+.detail-search{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  align-items:center;
+  gap:13px;
+  color:#777;
+  font-size:15px;
+  min-width:300px;
+}
+.detail-search:first-letter{font-size:26px;color:#111}
+@media(max-width:800px){
+  .detail-search{display:none}
+}
