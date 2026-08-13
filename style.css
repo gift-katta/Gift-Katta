@@ -387,3 +387,42 @@
 .custom-price-row span{padding-left:16px;font-size:20px;font-weight:800}
 .custom-price-row input{width:100%;height:100%;border:0;outline:0;padding:0 12px;font-size:18px;font-weight:700;background:transparent}
 .custom-price small{display:block;color:#777;font-size:11px;margin-top:8px}
+
+/* ===== PER-DEAL AD + FINAL PAYABLE AMOUNT ===== */
+.deal-specific-ad .detail-ad-slider{
+  width:100%!important;
+  height:380px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  overflow:hidden!important;
+  border-radius:26px!important;
+  background:#f7f7f5!important;
+}
+.deal-specific-ad-img{
+  width:100%!important;
+  height:100%!important;
+  display:block!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  border-radius:26px!important;
+}
+.payable-box{
+  margin:4px 0 16px;
+  padding:16px 18px;
+  border:1px solid #e1e1dd;
+  border-radius:16px;
+  background:#fafaf8;
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.payable-box span{font-size:13px;color:#777;width:100%;}
+.payable-box strong{font-size:32px;line-height:1;font-weight:900;}
+.payable-box small{font-size:13px;color:#168c43;}
+@media(max-width:800px){
+  .deal-specific-ad .detail-ad-slider{height:270px!important}
+  .deal-specific-ad-img{border-radius:22px!important}
+  .payable-box strong{font-size:28px}
+}
