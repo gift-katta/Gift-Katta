@@ -19,15 +19,16 @@ let current=0;
 function openDeal(i){
 current=i;
 const d=deals[i];
+document.getElementById("detailCrumb").textContent=d.brand;
 document.getElementById("mTitle").textContent=d.brand;
 document.getElementById("mOffer").textContent=d.offer;
-document.getElementById("mDesc").textContent=d.desc;
+document.getElementById("detailOfferText").textContent=d.offer;
 document.getElementById("mCoupon").textContent=d.coupon;
-document.getElementById("mAbout").textContent=`Gift Katta brings selected ${d.brand} offers directly to customers. Contact us on WhatsApp to check availability and complete your purchase.`;
-document.getElementById("modalAd").innerHTML=`<img src="${d.logo}" alt="${d.brand} logo"><span>${d.brand} — ${d.offer}</span>`;
-document.getElementById("mWa").href=`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hi Gift Katta, I'm interested in the ${d.brand} offer (${d.offer}). Please confirm availability and tell me how I can complete the purchase on WhatsApp.`)}`;
+document.getElementById("mAbout").textContent=`Gift Katta brings selected ${d.brand} offers directly to customers. Check the offer and contact us on WhatsApp to confirm availability and complete payment.`;
+document.getElementById("modalAd").innerHTML=`<img src="${d.logo}" alt="${d.brand} logo">`;
+document.getElementById("mWa").href=`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hi Gift Katta, I'm interested in the ${d.brand} offer (${d.offer}). Please confirm availability and tell me how I can complete payment on WhatsApp.`)}`;
 document.getElementById("copied").textContent="";
-document.getElementById("recentDeals").innerHTML=deals.filter((_,x)=>x!==i).slice(0,4).map(x=>`<div class="recent-card" style="background:#fff;border:1px solid #e5e5e0;border-radius:12px;padding:12px;margin:8px 0;cursor:pointer" onclick="openDeal(${deals.indexOf(x)})"><strong>${x.brand}</strong><br><small>${x.offer}</small></div>`).join("");
+document.getElementById("recentDeals").innerHTML=deals.filter((_,x)=>x!==i).slice(0,4).map(x=>`<div class="recent-card" onclick="openDeal(${deals.indexOf(x)})"><strong>${x.brand}</strong><br><small>${x.offer}</small></div>`).join("");
 document.getElementById("modal").classList.add("open");
 document.body.style.overflow="hidden";
 }
