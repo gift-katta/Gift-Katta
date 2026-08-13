@@ -16,110 +16,81 @@
 <section id="about" class="closing"><h2>Stay together to make new deals. ❤️</h2><p>Discover a selected offer, check the details, and connect with us on WhatsApp.</p></section></main>
 <footer><b>Gift Katta</b><span>Deals you love. Brands you trust.</span><a href="https://wa.me/917588406001">WhatsApp</a></footer>
 <div id="modal" class="modal">
-<div class="deal-detail-page">
+  <div class="detail-page">
+    <header class="detail-header">
+      <a class="detail-logo" href="#" onclick="closeDeal();return false;"><b>G</b> Gift Katta</a>
+      <nav class="detail-nav">
+        <a href="#" onclick="closeDeal();return false;">Deals</a>
+        <a href="#" onclick="closeDeal();return false;">Brands</a>
+        <a href="#" onclick="closeDeal();return false;">About</a>
+        <button type="button" class="detail-close" onclick="closeDeal()">×</button>
+      </nav>
+    </header>
 
-<header class="dd-header">
-  <a href="#" class="dd-logo" onclick="closeDeal();return false;">
-    <span>G</span><b>Gift Katta</b>
-  </a>
-  <div class="dd-header-right">
-    <a href="#" onclick="closeDeal();return false;">Deals</a>
-    <a href="#" onclick="closeDeal();return false;">Brands</a>
-    <a href="#" onclick="closeDeal();return false;">About</a>
-    <button class="dd-close" onclick="closeDeal()">×</button>
+    <main class="detail-wrap">
+      <div class="detail-breadcrumb">
+        <a href="#" onclick="closeDeal();return false;">Home</a>
+        <span>›</span>
+        <strong id="detailCrumb"></strong>
+      </div>
+
+      <div class="detail-grid">
+        <section class="detail-left">
+          <div class="detail-image" id="modalAd"></div>
+          <div class="detail-selected">
+            <div><small>Selected offer</small><strong id="detailOfferText"></strong></div>
+            <span>● Active</span>
+          </div>
+
+          <section class="detail-block">
+            <h2>Terms &amp; Conditions</h2>
+            <ul>
+              <li>Offer is subject to availability.</li>
+              <li>Offer validity may change without prior notice.</li>
+              <li>Brand-specific terms and conditions apply.</li>
+              <li>Payment is completed through WhatsApp with Gift Katta.</li>
+            </ul>
+          </section>
+        </section>
+
+        <section class="detail-right">
+          <small class="detail-kicker">GIFT KATTA DEAL</small>
+          <h1 id="mTitle"></h1>
+          <p class="detail-category">Selected brand offer</p>
+          <div class="detail-offer" id="mOffer"></div>
+
+          <div class="detail-select">
+            <span>Selected offer</span>
+            <strong id="ddSelectedOffer"></strong>
+            <b>⌄</b>
+          </div>
+
+          <div class="detail-coupon">
+            <div><small>Have a coupon or offer code?</small><strong id="mCoupon"></strong></div>
+            <button type="button" onclick="copyCoupon()">Copy</button>
+          </div>
+          <p id="copied" class="detail-copied"></p>
+
+          <div class="detail-whatsapp-info">
+            <span>💬</span>
+            <div><strong>Get this deal through WhatsApp</strong><small>Confirm the offer and complete your payment directly with Gift Katta.</small></div>
+          </div>
+          <a id="mWa" class="detail-whatsapp" target="_blank" rel="noopener">Continue on WhatsApp →</a>
+
+          <p id="mDesc" class="detail-description"></p>
+        </section>
+      </div>
+
+      <section class="detail-block detail-about">
+        <h2>About this deal</h2>
+        <p id="mAbout"></p>
+      </section>
+
+      <section class="detail-block">
+        <h2>More selected deals</h2>
+        <div id="recentDeals" class="recent-deals"></div>
+      </section>
+    </main>
   </div>
-</header>
-
-<main class="dd-container">
-
-  <div class="dd-breadcrumb">
-    <a href="#" onclick="closeDeal();return false;">Home</a>
-    <span>›</span>
-    <strong id="detailCrumb"></strong>
-  </div>
-
-  <div class="dd-grid">
-
-    <section class="dd-left">
-
-      <div class="dd-main-image" id="modalAd"></div>
-
-      <div class="dd-action-row">
-        <div class="dd-info-pill">
-          <span>Selected offer</span>
-          <b id="detailOfferText"></b>
-        </div>
-        <div class="dd-status">● Active</div>
-      </div>
-
-      <div class="dd-section-line">
-        <h3>Terms & Conditions</h3>
-        <ul>
-          <li>Offer is subject to availability.</li>
-          <li>Offer validity may change without prior notice.</li>
-          <li>Brand-specific terms and conditions apply.</li>
-          <li>Payment is completed through WhatsApp with Gift Katta.</li>
-        </ul>
-      </div>
-
-      <div class="dd-section-line">
-        <h3>How to get this deal</h3>
-        <p>Tap the WhatsApp button to contact Gift Katta. We will confirm the offer and guide you through the purchase.</p>
-      </div>
-
-    </section>
-
-    <section class="dd-right">
-
-      <small class="dd-kicker">GIFT KATTA DEAL</small>
-      <h1 id="mTitle"></h1>
-      <p class="dd-category">Selected brand offer</p>
-      <div class="dd-discount" id="mOffer"></div>
-
-      <div class="dd-selector">
-        <span>Selected offer</span>
-        <b id="ddSelectedOffer"></b>
-        <span class="dd-chevron">⌄</span>
-      </div>
-
-      <div class="dd-coupon">
-        <div>
-          <small>Have a coupon or offer code?</small>
-          <b id="mCoupon"></b>
-        </div>
-        <button onclick="copyCoupon()">Copy</button>
-      </div>
-      <p id="copied" class="dd-copied"></p>
-
-      <div class="dd-whatsapp-box">
-        <div class="dd-wa-icon">☏</div>
-        <div>
-          <b>Get this deal on WhatsApp</b>
-          <span>Contact Gift Katta to confirm availability and complete payment.</span>
-        </div>
-      </div>
-
-      <a id="mWa" class="dd-whatsapp-button" target="_blank">
-        Continue on WhatsApp →
-      </a>
-
-      <p id="mDesc" class="dd-description"></p>
-
-    </section>
-
-  </div>
-
-  <section class="dd-about">
-    <h2>About this deal</h2>
-    <p id="mAbout"></p>
-  </section>
-
-  <section class="dd-more">
-    <h2>More selected deals</h2>
-    <div id="recentDeals"></div>
-  </section>
-
-</main>
-</div>
 </div>
 <script src="script.js"></script></body></html>
