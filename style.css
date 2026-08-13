@@ -81,7 +81,7 @@
 }
 
 .hero-image-box{width:100%;height:310px;border-radius:30px;overflow:hidden;background:#f1f1ed}
-.hero-image-box img{width:100%;height:100%;display:block;object-fit:fill;object-position:center}
+.hero-image-box img{width:100%;height:100%;display:block;object-fit:cover;object-position:center}
 .ads{position:relative}
 .ad-slides{width:100%;overflow:hidden;border-radius:24px}
 .ad-slide{display:none;width:100%;aspect-ratio:3/1;border-radius:24px;overflow:hidden}
@@ -94,3 +94,22 @@
 .ad-dot.active{background:#171717;transform:scale(1.15)}
 @media(max-width:800px){.hero-image-box{height:230px;border-radius:22px}.ads{padding:0 5%}.ad-slide{aspect-ratio:16/8;border-radius:20px}.ad-arrow{width:36px;height:36px;font-size:25px}.ad-prev{left:2%}.ad-next{right:2%}}
 @media(max-width:480px){.hero-image-box{height:220px}.ad-slide{aspect-ratio:1.5/1}.ad-arrow{width:32px;height:32px;font-size:22px}}
+
+.deal-detail{position:absolute;right:0;top:0;height:100%;width:min(980px,100%);overflow:auto;background:#f8f8f5;padding:34px 42px}
+.detail-close{position:absolute;right:22px;top:18px;width:40px;height:40px;border:0;border-radius:50%;background:#fff;font-size:24px;cursor:pointer}
+.detail-breadcrumb{font-size:13px;color:#666;margin:8px 0 28px}.detail-breadcrumb span{padding:0 8px;color:#aaa}
+.detail-layout{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start}
+.detail-info>small{font-size:10px;letter-spacing:.14em;font-weight:800;color:#777}.detail-info h2{font-size:42px;margin:12px 0 4px;letter-spacing:-.05em}
+.detail-category{color:#888!important;font-size:14px!important}.detail-offer{font-size:30px;font-weight:900;margin:18px 0 8px}
+.detail-info p{color:#666;line-height:1.55}.detail-coupon{margin-top:22px;background:#fff;border:1px solid #e5e5e0;border-radius:15px;padding:15px;display:flex;justify-content:space-between;align-items:center}
+.detail-coupon small{display:block;color:#888;font-size:10px;letter-spacing:.08em}.detail-coupon b{display:block;font-size:20px;margin-top:5px}
+.detail-coupon button{background:#171717;color:#fff;border:0;border-radius:9px;padding:10px 14px;font-weight:700}.copied{height:18px!important;font-size:12px!important;color:#2b7b45!important}
+.whatsapp-note{display:flex;gap:12px;align-items:center;background:#eef7f0;border-radius:14px;padding:14px;margin-top:16px}
+.whatsapp-note>span{font-size:24px}.whatsapp-note b{display:block;font-size:13px;color:#1f6136}.whatsapp-note small{display:block;color:#667;font-size:12px;margin-top:3px}
+.detail-whatsapp{margin-top:12px}.detail-terms,.detail-about,.detail-recent{border-top:1px solid #deded8;margin-top:34px;padding-top:22px}
+.detail-terms h3,.detail-about h3,.detail-recent h3{font-size:18px;margin:0 0 12px}.detail-terms ul{margin:0;padding-left:18px}
+.detail-terms li{font-size:13px;color:#666;margin:8px 0;line-height:1.45}.detail-about p{font-size:14px;color:#666;line-height:1.6}
+.detail-visual .modalAd{min-height:320px;height:auto;margin:0;border-radius:24px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:30px}
+.detail-visual .modalAd img{width:180px!important;height:180px!important;object-fit:contain!important;background:#fff;border-radius:20px;padding:18px}
+.detail-visual .modalAd span{font-size:22px;margin-top:18px}
+@media(max-width:800px){.deal-detail{padding:25px 20px}.detail-layout{grid-template-columns:1fr;gap:20px}.detail-info h2{font-size:34px}}
