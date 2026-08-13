@@ -36,9 +36,26 @@
 
       <div class="detail-grid">
         <section class="detail-left">
-          <div class="detail-image" id="modalAd"></div>
+          <div class="detail-ad-wrap">
+            <button class="detail-ad-arrow left" type="button" onclick="changeDetailAd(-1)">‹</button>
+            <div class="detail-ad-slider" id="detailAdSlider">
+              <div class="detail-ad-slide active"><img src="ad-1.webp" alt="Gift Katta advertisement"></div>
+              <div class="detail-ad-slide"><img src="ad-2.webp" alt="Gift Katta advertisement"></div>
+              <div class="detail-ad-slide"><img src="ad-3.webp" alt="Gift Katta advertisement"></div>
+            </div>
+            <button class="detail-ad-arrow right" type="button" onclick="changeDetailAd(1)">›</button>
+          </div>
+          <div class="detail-ad-dots">
+            <button class="detail-ad-dot active" onclick="showDetailAd(0)"></button>
+            <button class="detail-ad-dot" onclick="showDetailAd(1)"></button>
+            <button class="detail-ad-dot" onclick="showDetailAd(2)"></button>
+          </div>
+
           <div class="detail-selected">
-            <div><small>Selected offer</small><strong id="detailOfferText"></strong></div>
+            <div>
+              <small>Selected offer</small>
+              <strong id="detailOfferText"></strong>
+            </div>
             <span>● Active</span>
           </div>
 
@@ -65,17 +82,26 @@
             <b>⌄</b>
           </div>
 
+          <div class="detail-whatsapp-info">
+            <span>💬</span>
+            <div>
+              <strong>Payment through WhatsApp</strong>
+              <small>Message Gift Katta to confirm the offer and complete your payment.</small>
+            </div>
+          </div>
+
           <div class="detail-coupon">
-            <div><small>Have a coupon or offer code?</small><strong id="mCoupon"></strong></div>
+            <div>
+              <small>Have a coupon or offer code?</small>
+              <strong id="mCoupon"></strong>
+            </div>
             <button type="button" onclick="copyCoupon()">Copy</button>
           </div>
           <p id="copied" class="detail-copied"></p>
 
-          <div class="detail-whatsapp-info">
-            <span>💬</span>
-            <div><strong>Get this deal through WhatsApp</strong><small>Confirm the offer and complete your payment directly with Gift Katta.</small></div>
-          </div>
-          <a id="mWa" class="detail-whatsapp" target="_blank" rel="noopener">Continue on WhatsApp →</a>
+          <a id="mWa" class="detail-whatsapp" target="_blank" rel="noopener">
+            Continue on WhatsApp →
+          </a>
 
           <p id="mDesc" class="detail-description"></p>
         </section>

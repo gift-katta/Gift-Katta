@@ -29,11 +29,11 @@ function openDeal(i){
   set("mCoupon",d.coupon);
   set("mDesc",d.desc);
   set("mAbout",`Gift Katta brings selected ${d.brand} offers directly to customers. Contact us on WhatsApp to confirm availability and complete your purchase.`);
-  const ad=document.getElementById("modalAd");
-  if(ad)ad.innerHTML=`<img src="${d.logo}" alt="${d.brand} logo">`;
+  set("copied","");
+  detailAdIndex=0;
+  showDetailAd(0);
   const wa=document.getElementById("mWa");
   if(wa)wa.href=`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hi Gift Katta, I'm interested in the ${d.brand} offer (${d.offer}). Please confirm availability and tell me how I can complete payment on WhatsApp.`)}`;
-  set("copied","");
   const recent=document.getElementById("recentDeals");
   if(recent){
     recent.innerHTML=deals.filter((_,x)=>x!==i).slice(0,4).map(x=>`<div class="recent-card" onclick="openDeal(${deals.indexOf(x)})"><img src="${x.logo}" alt="${x.brand} logo"><div><strong>${x.brand}</strong><br><small>${x.offer}</small></div></div>`).join("");
@@ -42,6 +42,21 @@ function openDeal(i){
   if(modal)modal.classList.add("open");
   document.body.style.overflow="hidden";
 }
+let detailAdIndex=0;
+function showDetailAd(index){
+  const slides=document.querySelectorAll(".detail-ad-slide");
+  const dots=document.querySelectorAll(".detail-ad-dot");
+  if(!slides.length)return;
+  if(index<0)index=slides.length-1;
+  if(index>=slides.length)index=0;
+  slides.forEach((s,i)=>s.classList.toggle("active",i===index));
+  dots.forEach((d,i)=>d.classList.toggle("active",i===index));
+  detailAdIndex=index;
+}
+function changeDetailAd(direction){
+  showDetailAd(detailAdIndex+direction);
+}
+
 function closeDeal(){document.getElementById("modal").classList.remove("open");document.body.style.overflow=""}
 function copyCoupon(){navigator.clipboard.writeText(deals[current].coupon);document.getElementById("copied").textContent="✓ Coupon copied!"}
 
