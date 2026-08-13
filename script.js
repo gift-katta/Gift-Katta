@@ -44,6 +44,7 @@ function openDeal(i){
 
   selectedPrice=Array.isArray(d.prices)?d.prices[0]:null;
   if(Array.isArray(d.prices)) selectPrice(d.prices[0],document.querySelector(".price-option"));
+  updateFinalPrice();
   else updatePayable();
 
   const recent=document.getElementById("recentDeals");
@@ -81,7 +82,25 @@ function updatePayable(){
     if(savingEl)savingEl.textContent="Enter a coupon amount to see your final price";
   }
   updateWhatsAppLink();
+  updateFinalPrice();
+  updateFinalPrice();
 }
+function updateFinalPrice(){
+  const d = deals[current];
+  const el = document.getElementById("finalPrice");
+  if(!el || !d || !selectedPrice){
+    if(el) el.innerHTML = "";
+    return;
+  }
+  const discount = parseFloat(String(d.offer).replace(/[^0-9.]/g,"")) || 0;
+  const value = Number(selectedPrice);
+  const saving = Math.round(value * discount / 100);
+  const payable = value - saving;
+  el.innerHTML =
+    `<strong>You pay only ₹${payable.toLocaleString("en-IN")}</strong>` +
+    ` <span>You save ₹${saving.toLocaleString("en-IN")}</span>`;
+}
+
 function updateWhatsAppLink(){
   const d=deals[current],wa=document.getElementById("mWa");
   if(!wa||!d)return;

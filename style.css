@@ -426,3 +426,14 @@
   .deal-specific-ad-img{border-radius:22px!important}
   .payable-box strong{font-size:28px}
 }
+
+/* Dynamic final payable price */
+#finalPrice{
+  margin: 18px 0;
+}
+#finalPrice strong{
+  font-weight: 800;
+}
+#finalPrice span{
+  margin-left: 8px;
+}
