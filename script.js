@@ -1,13 +1,14 @@
 const WHATSAPP_NUMBER="917588406001";
-const deals=[
-{brand:"PVR INOX",logo:"pvr-inox.webp",offer:"Up to 25% OFF",coupon:"GIFTKATTA25",desc:"Special cinema offer for selected bookings."},
-{brand:"Jockey",logo:"jockey.webp",offer:"Up to 30% OFF",coupon:"JOCKEY30",desc:"Selected fashion and innerwear offers."},
-{brand:"Puma",logo:"puma.webp",offer:"Up to 40% OFF",coupon:"PUMA40",desc:"Selected sportswear and footwear offer."},
-{brand:"Foxtale",logo:"foxtale.webp",offer:"Up to 25% OFF",coupon:"FOXTale25",desc:"Selected skincare products offer."},
-{brand:"Domino's",logo:"dominos.webp",offer:"Special Offer",coupon:"DOMINOS",desc:"Selected food offers."},
-{brand:"EatSure",logo:"eatsure.webp",offer:"Up to 20% OFF",coupon:"EATSURE20",desc:"Selected meals and food offers."},
-{brand:"BGMI by Swag",logo:"bgmi-by-swag.webp",offer:"Exclusive Offer",coupon:"BGMIKATTA",desc:"Selected BGMI by Swag offer."},
-{brand:"Vijay Sales",logo:"vijay-sales.webp",offer:"Up to 15% OFF",coupon:"VS15",desc:"Selected electronics offers."}];
+const deals = [
+  {brand:"PVR INOX", offer:"10% OFF", prices:[500, 750, 1000, 2000, 2500, 5000], logo:"pvr-inox.webp", desc:"PVR INOX selected offers."},
+  {brand:"Jockey", offer:"9% OFF", prices:"custom", logo:"jockey.webp", desc:"Jockey selected offers."},
+  {brand:"Puma", offer:"8% OFF", prices:[500, 1000, 1500, 2000, 5000], logo:"puma.webp", desc:"Puma selected offers."},
+  {brand:"Foxtale", offer:"14% OFF", prices:[100, 250, 500, 1000, 1500, 2000, 2500, 5000], logo:"foxtale.webp", desc:"Foxtale selected offers."},
+  {brand:"Domino's", offer:"12% OFF", prices:[250, 500, 100, 1500, 2500, 2000, 5000], logo:"dominos.webp", desc:"Domino's selected offers."},
+  {brand:"EatSure", offer:"9% OFF", prices:"custom", logo:"eatsure.webp", desc:"EatSure selected offers."},
+  {brand:"BGMI by Swag", offer:"8% OFF", prices:[15, 30, 75, 380, 750, 1900], logo:"bgmi-by-swag.webp", desc:"BGMI by Swag selected offers."},
+  {brand:"Vijay Sales", offer:"2% OFF", prices:[100, 500, 1000, 1100, 1500, 2000, 2500, 3000], logo:"vijay-sales.webp", desc:"Vijay Sales selected offers."}
+];
 
 const bg=document.getElementById("brandsGrid"),dg=document.getElementById("dealsGrid");
 deals.forEach((d,i)=>{
@@ -21,30 +22,22 @@ function openDeal(i){
   const d=deals[i];
   if(!d)return;
   const set=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value;};
-  set("detailCrumb",d.brand);
-  set("mTitle",d.brand);
-  set("mOffer",d.offer);
+  set("detailCrumb",d.brand); set("mTitle",d.brand); set("mOffer",d.offer);
   set("mAbout",`Gift Katta brings selected ${d.brand} offers directly to customers. Choose an available coupon value and contact us on WhatsApp to confirm availability and complete payment.`);
-  set("copied","");
-  detailAdIndex=0;
-  showDetailAd(0);
-
   const priceBox=document.getElementById("priceOptions");
-  const values=d.brand==="PVR INOX" ? [500,750,1000,2000] : [];
   if(priceBox){
-    if(values.length){
-      priceBox.innerHTML=values.map((v,n)=>`<button type="button" class="price-option${n===0?" active":""}" onclick="selectPrice(${v},this)">₹${v.toLocaleString("en-IN")}</button>`).join("");
-      set("pointValues",`Available for ${d.brand}: ₹500, ₹750, ₹1,000 and ₹2,000.`);
+    if(Array.isArray(d.prices)){
+      priceBox.innerHTML=d.prices.map((v,n)=>`<button type="button" class="price-option${n===0?" active":""}" onclick="selectPrice(${v},this)">₹${v.toLocaleString("en-IN")}</button>`).join("");
+      set("pointValues",`Available values: ${d.prices.map(v=>"₹"+v.toLocaleString("en-IN")).join(", ")}.`);
     }else{
-      priceBox.innerHTML=`<div class="price-note">Available coupon values will be confirmed by Gift Katta on WhatsApp.</div>`;
-      set("pointValues","Coupon values are confirmed according to the selected brand's current availability.");
+      priceBox.innerHTML=`<div class="custom-price"><label for="customAmount">Enter coupon amount</label><div class="custom-price-row"><span>₹</span><input id="customAmount" type="number" min="1" step="1" placeholder="Enter amount" oninput="selectCustomPrice(this.value)"></div><small>Choose your custom amount and continue through WhatsApp.</small></div>`;
+      set("pointValues","Custom amount available. Enter the amount you want and confirm availability on WhatsApp.");
     }
   }
-  selectPrice(values[0]||null,null);
-
+  selectedPrice=Array.isArray(d.prices)?d.prices[0]:null;
+  if(Array.isArray(d.prices)) selectPrice(d.prices[0],document.querySelector(".price-option")); else updateWhatsAppLink();
   const recent=document.getElementById("recentDeals");
-  if(recent)recent.innerHTML=deals.filter((_,x)=>x!==i).slice(0,4).map(x=>`<div class="recent-card" onclick="openDeal(${deals.indexOf(x)})"><img src="${x.logo}" alt="${x.brand} logo"><div><strong>${x.brand}</strong><br><small>${x.offer}</small></div></div>`).join("");
-
+  if(recent) recent.innerHTML=deals.filter((_,x)=>x!==i).slice(0,4).map(x=>`<div class="recent-card" onclick="openDeal(${deals.indexOf(x)})"><img src="${x.logo}" alt="${x.brand} logo"><div><strong>${x.brand}</strong><br><small>${x.offer}</small></div></div>`).join("");
   const modal=document.getElementById("modal");
   if(modal)modal.classList.add("open");
   document.body.style.overflow="hidden";
@@ -54,12 +47,17 @@ function selectPrice(value,button){
   selectedPrice=value;
   document.querySelectorAll(".price-option").forEach(x=>x.classList.remove("active"));
   if(button)button.classList.add("active");
-  const d=deals[current];
-  const wa=document.getElementById("mWa");
-  if(wa){
-    const valueText=value?` Coupon value: ₹${value.toLocaleString("en-IN")}.`:"";
-    wa.href=`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hi Gift Katta, I'm interested in the ${d.brand} offer (${d.offer}).${valueText} Please confirm availability and tell me how I can complete payment on WhatsApp.`)}`;
-  }
+  updateWhatsAppLink();
+}
+function selectCustomPrice(value){
+  selectedPrice=value?Number(value):null;
+  updateWhatsAppLink();
+}
+function updateWhatsAppLink(){
+  const d=deals[current],wa=document.getElementById("mWa");
+  if(!wa||!d)return;
+  const valueText=selectedPrice?` Coupon value: ₹${Number(selectedPrice).toLocaleString("en-IN")}.`:" I would like a custom coupon amount.";
+  wa.href=`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hi Gift Katta, I'm interested in the ${d.brand} offer (${d.offer}).${valueText} Please confirm availability and tell me how I can complete payment on WhatsApp.`)}`;
 }
 let detailAdIndex=0;
 function showDetailAd(index){
