@@ -17,20 +17,39 @@ dg.innerHTML+=`<div class="card" onclick="openDeal(${i})"><div class="top"><img 
 
 let current=0;
 function openDeal(i){
-current=i;
-const d=deals[i];
-document.getElementById("detailCrumb").textContent=d.brand;
-document.getElementById("mTitle").textContent=d.brand;
-document.getElementById("mOffer").textContent=d.offer;
-document.getElementById("detailOfferText").textContent=d.offer;
-document.getElementById("mCoupon").textContent=d.coupon;
-document.getElementById("mAbout").textContent=`Gift Katta brings selected ${d.brand} offers directly to customers. Check the offer and contact us on WhatsApp to confirm availability and complete payment.`;
-document.getElementById("modalAd").innerHTML=`<img src="${d.logo}" alt="${d.brand} logo">`;
-document.getElementById("mWa").href=`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hi Gift Katta, I'm interested in the ${d.brand} offer (${d.offer}). Please confirm availability and tell me how I can complete payment on WhatsApp.`)}`;
-document.getElementById("copied").textContent="";
-document.getElementById("recentDeals").innerHTML=deals.filter((_,x)=>x!==i).slice(0,4).map(x=>`<div class="recent-card" onclick="openDeal(${deals.indexOf(x)})"><strong>${x.brand}</strong><br><small>${x.offer}</small></div>`).join("");
-document.getElementById("modal").classList.add("open");
-document.body.style.overflow="hidden";
+  current=i;
+  const d=deals[i];
+
+  document.getElementById("detailCrumb").textContent=d.brand;
+  document.getElementById("mTitle").textContent=d.brand;
+  document.getElementById("mOffer").textContent=d.offer;
+  document.getElementById("detailOfferText").textContent=d.offer;
+  document.getElementById("ddSelectedOffer").textContent=d.offer;
+  document.getElementById("mCoupon").textContent=d.coupon;
+  document.getElementById("mDesc").textContent=d.desc;
+
+  document.getElementById("mAbout").textContent=
+    `Gift Katta brings selected ${d.brand} offers directly to customers. Contact us on WhatsApp to confirm availability and complete your purchase.`;
+
+  document.getElementById("modalAd").innerHTML=
+    `<img src="${d.logo}" alt="${d.brand} logo">`;
+
+  document.getElementById("mWa").href=
+    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+      `Hi Gift Katta, I'm interested in the ${d.brand} offer (${d.offer}). Please confirm availability and tell me how I can complete payment on WhatsApp.`
+    )}`;
+
+  document.getElementById("copied").textContent="";
+
+  document.getElementById("recentDeals").innerHTML=
+    deals.filter((_,x)=>x!==i).slice(0,4).map(x=>
+      `<div class="recent-card" onclick="openDeal(${deals.indexOf(x)})">
+        <strong>${x.brand}</strong><br><small>${x.offer}</small>
+      </div>`
+    ).join("");
+
+  document.getElementById("modal").classList.add("open");
+  document.body.style.overflow="hidden";
 }
 function closeDeal(){document.getElementById("modal").classList.remove("open");document.body.style.overflow=""}
 function copyCoupon(){navigator.clipboard.writeText(deals[current].coupon);document.getElementById("copied").textContent="✓ Coupon copied!"}
