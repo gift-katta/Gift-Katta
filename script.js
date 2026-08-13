@@ -24,38 +24,53 @@ function openDeal(i){
   set("detailCrumb",d.brand);
   set("mTitle",d.brand);
   set("mOffer",d.offer);
-  set("detailOfferText",d.offer);
-  set("ddSelectedOffer",d.offer);
-  set("mCoupon",d.coupon);
-  set("mDesc",d.desc);
-  set("mAbout",`Gift Katta brings selected ${d.brand} offers directly to customers. Contact us on WhatsApp to confirm availability and complete your purchase.`);
+  set("mAbout",`Gift Katta brings selected ${d.brand} offers directly to customers. Choose an available coupon value and contact us on WhatsApp to confirm availability and complete payment.`);
   set("copied","");
   detailAdIndex=0;
   showDetailAd(0);
-  const wa=document.getElementById("mWa");
-  if(wa)wa.href=`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hi Gift Katta, I'm interested in the ${d.brand} offer (${d.offer}). Please confirm availability and tell me how I can complete payment on WhatsApp.`)}`;
-  const recent=document.getElementById("recentDeals");
-  if(recent){
-    recent.innerHTML=deals.filter((_,x)=>x!==i).slice(0,4).map(x=>`<div class="recent-card" onclick="openDeal(${deals.indexOf(x)})"><img src="${x.logo}" alt="${x.brand} logo"><div><strong>${x.brand}</strong><br><small>${x.offer}</small></div></div>`).join("");
+
+  const priceBox=document.getElementById("priceOptions");
+  const values=d.brand==="PVR INOX" ? [500,750,1000,2000] : [];
+  if(priceBox){
+    if(values.length){
+      priceBox.innerHTML=values.map((v,n)=>`<button type="button" class="price-option${n===0?" active":""}" onclick="selectPrice(${v},this)">₹${v.toLocaleString("en-IN")}</button>`).join("");
+      set("pointValues",`Available for ${d.brand}: ₹500, ₹750, ₹1,000 and ₹2,000.`);
+    }else{
+      priceBox.innerHTML=`<div class="price-note">Available coupon values will be confirmed by Gift Katta on WhatsApp.</div>`;
+      set("pointValues","Coupon values are confirmed according to the selected brand's current availability.");
+    }
   }
+  selectPrice(values[0]||null,null);
+
+  const recent=document.getElementById("recentDeals");
+  if(recent)recent.innerHTML=deals.filter((_,x)=>x!==i).slice(0,4).map(x=>`<div class="recent-card" onclick="openDeal(${deals.indexOf(x)})"><img src="${x.logo}" alt="${x.brand} logo"><div><strong>${x.brand}</strong><br><small>${x.offer}</small></div></div>`).join("");
+
   const modal=document.getElementById("modal");
   if(modal)modal.classList.add("open");
   document.body.style.overflow="hidden";
 }
+let selectedPrice=null;
+function selectPrice(value,button){
+  selectedPrice=value;
+  document.querySelectorAll(".price-option").forEach(x=>x.classList.remove("active"));
+  if(button)button.classList.add("active");
+  const d=deals[current];
+  const wa=document.getElementById("mWa");
+  if(wa){
+    const valueText=value?` Coupon value: ₹${value.toLocaleString("en-IN")}.`:"";
+    wa.href=`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hi Gift Katta, I'm interested in the ${d.brand} offer (${d.offer}).${valueText} Please confirm availability and tell me how I can complete payment on WhatsApp.`)}`;
+  }
+}
 let detailAdIndex=0;
 function showDetailAd(index){
-  const slides=document.querySelectorAll(".detail-ad-slide");
-  const dots=document.querySelectorAll(".detail-ad-dot");
+  const slides=document.querySelectorAll(".detail-ad-slide"),dots=document.querySelectorAll(".detail-ad-dot");
   if(!slides.length)return;
-  if(index<0)index=slides.length-1;
-  if(index>=slides.length)index=0;
-  slides.forEach((s,i)=>s.classList.toggle("active",i===index));
-  dots.forEach((d,i)=>d.classList.toggle("active",i===index));
+  if(index<0)index=slides.length-1;if(index>=slides.length)index=0;
+  slides.forEach((x,i)=>x.classList.toggle("active",i===index));
+  dots.forEach((x,i)=>x.classList.toggle("active",i===index));
   detailAdIndex=index;
 }
-function changeDetailAd(direction){
-  showDetailAd(detailAdIndex+direction);
-}
+function changeDetailAd(direction){showDetailAd(detailAdIndex+direction);}
 
 function closeDeal(){document.getElementById("modal").classList.remove("open");document.body.style.overflow=""}
 function copyCoupon(){navigator.clipboard.writeText(deals[current].coupon);document.getElementById("copied").textContent="✓ Coupon copied!"}

@@ -16,108 +16,80 @@
 <section id="about" class="closing"><h2>Stay together to make new deals. ❤️</h2><p>Discover a selected offer, check the details, and connect with us on WhatsApp.</p></section></main>
 <footer><b>Gift Katta</b><span>Deals you love. Brands you trust.</span><a href="https://wa.me/917588406001">WhatsApp</a></footer>
 <div id="modal" class="modal">
-  <div class="detail-page">
-    <header class="detail-header">
-      <a class="detail-logo" href="#" onclick="closeDeal();return false;"><b>G</b> Gift Katta</a>
-      <div class="detail-search">⌕ <span>Search for your favorite brands...</span></div>
-      <nav class="detail-nav">
-        <a href="#" onclick="closeDeal();return false;">Deals</a>
-        <a href="#" onclick="closeDeal();return false;">Brands</a>
-        <a href="#" onclick="closeDeal();return false;">About</a>
-        <button type="button" class="detail-close" onclick="closeDeal()">×</button>
-      </nav>
-    </header>
+<div class="detail-page">
+<header class="detail-header">
+  <a class="detail-logo" href="#" onclick="closeDeal();return false;"><b>G</b> Gift Katta</a>
+  <div class="detail-search">⌕ <span>Search for your favorite brands...</span></div>
+  <nav class="detail-nav">
+    <a href="#" onclick="closeDeal();return false;">Deals</a>
+    <a href="#" onclick="closeDeal();return false;">Brands</a>
+    <a href="#" onclick="closeDeal();return false;">About</a>
+    <button class="detail-close" onclick="closeDeal()">×</button>
+  </nav>
+</header>
 
-    <main class="detail-wrap">
-      <div class="detail-breadcrumb">
-        <a href="#" onclick="closeDeal();return false;">Home</a>
-        <span>›</span>
-        <strong id="detailCrumb"></strong>
-      </div>
+<main class="detail-wrap">
+<div class="detail-breadcrumb">
+  <a href="#" onclick="closeDeal();return false;">Home</a><span>›</span><strong id="detailCrumb"></strong>
+</div>
 
-      <div class="detail-grid">
-        <section class="detail-left">
-          <div class="detail-ad-wrap">
-            <button class="detail-ad-arrow left" type="button" onclick="changeDetailAd(-1)">‹</button>
-            <div class="detail-ad-slider" id="detailAdSlider">
-              <div class="detail-ad-slide active"><img src="ad-1.webp" alt="Gift Katta advertisement"></div>
-              <div class="detail-ad-slide"><img src="ad-2.webp" alt="Gift Katta advertisement"></div>
-              <div class="detail-ad-slide"><img src="ad-3.webp" alt="Gift Katta advertisement"></div>
-            </div>
-            <button class="detail-ad-arrow right" type="button" onclick="changeDetailAd(1)">›</button>
-          </div>
-          <div class="detail-ad-dots">
-            <button class="detail-ad-dot active" onclick="showDetailAd(0)"></button>
-            <button class="detail-ad-dot" onclick="showDetailAd(1)"></button>
-            <button class="detail-ad-dot" onclick="showDetailAd(2)"></button>
-          </div>
-
-          <div class="detail-selected">
-            <div>
-              <small>Selected offer</small>
-              <strong id="detailOfferText"></strong>
-            </div>
-            <span>● Active</span>
-          </div>
-
-          <section class="detail-block">
-            <h2>Terms &amp; Conditions</h2>
-            <ul>
-              <li>Offer is subject to availability.</li>
-              <li>Offer validity may change without prior notice.</li>
-              <li>Brand-specific terms and conditions apply.</li>
-              <li>Payment is completed through WhatsApp with Gift Katta.</li>
-            </ul>
-          </section>
-        </section>
-
-        <section class="detail-right">
-          <small class="detail-kicker">GIFT KATTA DEAL</small>
-          <h1 id="mTitle"></h1>
-          <p class="detail-category">Selected brand offer</p>
-          <div class="detail-offer" id="mOffer"></div>
-
-          <div class="detail-select">
-            <span>Selected offer</span>
-            <strong id="ddSelectedOffer"></strong>
-            <b>⌄</b>
-          </div>
-
-          <div class="detail-whatsapp-info">
-            <span>💬</span>
-            <div>
-              <strong>Payment through WhatsApp</strong>
-              <small>Message Gift Katta to confirm the offer and complete your payment.</small>
-            </div>
-          </div>
-
-          <div class="detail-coupon">
-            <div>
-              <small>Have a coupon or offer code?</small>
-              <strong id="mCoupon"></strong>
-            </div>
-            <button type="button" onclick="copyCoupon()">Copy</button>
-          </div>
-          <p id="copied" class="detail-copied"></p>
-
-          <a id="mWa" class="detail-whatsapp" target="_blank" rel="noopener">
-            Continue on WhatsApp →
-          </a>
-
-          <p id="mDesc" class="detail-description"></p>
-        </section>
-      </div>
-
-      <section class="detail-block detail-about">
-        <h2>About this deal</h2>
-        <p id="mAbout"></p>
-      </section>
-
-      <section class="detail-block">
-        <h2>More selected deals</h2>
-        <div id="recentDeals" class="recent-deals"></div>
-      </section>
-    </main>
+<div class="detail-grid">
+<section class="detail-left">
+  <div class="detail-ad-wrap">
+    <button class="detail-ad-arrow left" onclick="changeDetailAd(-1)">‹</button>
+    <div class="detail-ad-slider">
+      <div class="detail-ad-slide active"><img src="ad-1.webp" alt="Gift Katta advertisement"></div>
+      <div class="detail-ad-slide"><img src="ad-2.webp" alt="Gift Katta advertisement"></div>
+      <div class="detail-ad-slide"><img src="ad-3.webp" alt="Gift Katta advertisement"></div>
+    </div>
+    <button class="detail-ad-arrow right" onclick="changeDetailAd(1)">›</button>
   </div>
+  <div class="detail-ad-dots">
+    <button class="detail-ad-dot active" onclick="showDetailAd(0)"></button>
+    <button class="detail-ad-dot" onclick="showDetailAd(1)"></button>
+    <button class="detail-ad-dot" onclick="showDetailAd(2)"></button>
+  </div>
+</section>
+
+<section class="detail-right">
+  <small class="detail-kicker">GIFT KATTA DEAL</small>
+  <h1 id="mTitle"></h1>
+  <p class="detail-category">Selected brand offer</p>
+  <div class="detail-discount" id="mOffer"></div>
+
+  <div class="price-heading">Choose your coupon value</div>
+  <div id="priceOptions" class="price-options"></div>
+
+  <div class="detail-whatsapp-info">
+    <div class="detail-wa-round">☏</div>
+    <div><strong>Get this deal through WhatsApp</strong>
+    <small>Choose your coupon value, then message Gift Katta to confirm availability and payment.</small></div>
+  </div>
+
+  <a id="mWa" class="detail-whatsapp" target="_blank" rel="noopener">Continue on WhatsApp →</a>
+</section>
+</div>
+
+<section class="detail-block important-points">
+<h2>Important Points</h2>
+<div class="points-grid">
+  <div><b>Available coupon values</b><span id="pointValues">Values shown above are the currently available coupon values.</span></div>
+  <div><b>Payment through WhatsApp</b><span>Payment is completed directly with Gift Katta on WhatsApp.</span></div>
+  <div><b>Offer availability</b><span>Offers and coupon availability can change without prior notice.</span></div>
+  <div><b>Brand terms apply</b><span>Use of the coupon is subject to the selected brand's terms.</span></div>
+</div>
+</section>
+
+<section class="detail-block detail-about">
+<h2>About this deal</h2>
+<p id="mAbout"></p>
+</section>
+
+<section class="detail-block">
+<h2>More selected deals</h2>
+<div id="recentDeals" class="recent-deals"></div>
+</section>
+</main>
+</div>
 </div>
 <script src="script.js"></script></body></html>
