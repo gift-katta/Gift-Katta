@@ -44,8 +44,7 @@ function openDeal(i){
 
   selectedPrice=Array.isArray(d.prices)?d.prices[0]:null;
   if(Array.isArray(d.prices)) selectPrice(d.prices[0],document.querySelector(".price-option"));
-  updateFinalPrice();
-  else updatePayable();
+  updatePayable();
 
   const recent=document.getElementById("recentDeals");
   if(recent) recent.innerHTML=deals.filter((_,x)=>x!==i).slice(0,4).map(x=>`<div class="recent-card" onclick="openDeal(${deals.indexOf(x)})"><img src="${x.logo}" alt="${x.brand} logo"><div><strong>${x.brand}</strong><br><small>${x.offer}</small></div></div>`).join("");
@@ -69,21 +68,28 @@ function selectCustomPrice(value){
 function updatePayable(){
   const d=deals[current];
   if(!d)return;
+
   const amount=Number(selectedPrice);
   const payableEl=document.getElementById("payableAmount");
   const savingEl=document.getElementById("savingAmount");
+
   if(amount>0){
-    const saving=Math.round(amount*d.discount/100*100)/100;
+    const discount=Number(d.discount)||0;
+    const saving=Math.round(amount*discount)/100;
     const payable=Math.round((amount-saving)*100)/100;
-    if(payableEl)payableEl.textContent=`₹${payable.toLocaleString("en-IN",{minimumFractionDigits:payable%1?2:0,maximumFractionDigits:2})}`;
-    if(savingEl)savingEl.textContent=`You save ₹${saving.toLocaleString("en-IN",{minimumFractionDigits:saving%1?2:0,maximumFractionDigits:2})}`;
+
+    if(payableEl){
+      payableEl.textContent=`₹${payable.toLocaleString("en-IN",{minimumFractionDigits:payable%1?2:0,maximumFractionDigits:2})}`;
+    }
+    if(savingEl){
+      savingEl.textContent=`You save ₹${saving.toLocaleString("en-IN",{minimumFractionDigits:saving%1?2:0,maximumFractionDigits:2})}`;
+    }
   }else{
     if(payableEl)payableEl.textContent="—";
     if(savingEl)savingEl.textContent="Enter a coupon amount to see your final price";
   }
+
   updateWhatsAppLink();
-  updateFinalPrice();
-  updateFinalPrice();
 }
 function updateFinalPrice(){
   const d = deals[current];
