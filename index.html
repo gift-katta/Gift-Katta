@@ -15,5 +15,31 @@
 <section id="deals"><div class="head"><div><small>TODAY'S DEALS</small><h2>Grab a deal</h2></div><span>8 selected brands</span></div><div id="dealsGrid" class="grid"></div></section>
 <section id="about" class="closing"><h2>Stay together to make new deals. ❤️</h2><p>Discover a selected offer, check the details, and connect with us on WhatsApp.</p></section></main>
 <footer><b>Gift Katta</b><span>Deals you love. Brands you trust.</span><a href="https://wa.me/917588406001">WhatsApp</a></footer>
-<div id="modal" class="modal"><div class="shade" onclick="closeDeal()"></div><article><button onclick="closeDeal()">×</button><small>GIFT KATTA</small><div id="modalAd" class="modalAd"></div><label>● OFFER ACTIVE</label><h2 id="mTitle"></h2><strong id="mOffer"></strong><p id="mDesc"></p><a id="mWa" class="whatsapp" target="_blank">● Get Deal on WhatsApp</a><div class="coupon"><span><small>COUPON CODE</small><b id="mCoupon"></b></span><button onclick="copyCoupon()">Copy</button></div><p id="copied"></p><div class="info"><div><h3>How to redeem</h3><ol><li>Copy the coupon.</li><li>Tap WhatsApp.</li><li>Confirm the offer with Gift Katta.</li><li>Follow the brand instructions.</li></ol></div><div><h3>Terms & Conditions</h3><ul><li>Offer subject to availability.</li><li>Validity may change.</li><li>Brand terms apply.</li><li>No payment is processed on this website.</li></ul></div></div></article></div>
+<div id="modal" class="modal">
+<div class="shade" onclick="closeDeal()"></div>
+<article class="deal-detail">
+<button class="detail-close" onclick="closeDeal()">×</button>
+<div class="detail-breadcrumb">Home <span>›</span> Deal Details</div>
+<div class="detail-layout">
+<section class="detail-visual"><div id="modalAd" class="modalAd"></div></section>
+<section class="detail-info">
+<small>GIFT KATTA DEAL</small>
+<h2 id="mTitle"></h2>
+<p class="detail-category">Selected brand offer</p>
+<div class="detail-offer" id="mOffer"></div>
+<p id="mDesc"></p>
+<div class="detail-coupon"><div><small>COUPON / OFFER CODE</small><b id="mCoupon"></b></div><button onclick="copyCoupon()">Copy</button></div>
+<p id="copied" class="copied"></p>
+<div class="whatsapp-note"><span>💬</span><div><b>Get this deal through WhatsApp</b><small>We'll help you with the offer and payment there.</small></div></div>
+<a id="mWa" class="whatsapp detail-whatsapp" target="_blank">Proceed on WhatsApp</a>
+</section></div>
+<section class="detail-terms"><h3>Terms & Conditions</h3><ul>
+<li>Offer is subject to availability and the brand's applicable terms.</li>
+<li>Offer validity may change without prior notice.</li>
+<li>Coupon or offer code is applicable only where specified.</li>
+<li>Payment is handled through WhatsApp; this website does not process payments.</li>
+</ul></section>
+<section class="detail-about"><h3>About this deal</h3><p id="mAbout">Gift Katta brings selected offers from trusted brands.</p></section>
+<section class="detail-recent"><h3>More deals</h3><div id="recentDeals"></div></section>
+</article></div>
 <script src="script.js"></script></body></html>
